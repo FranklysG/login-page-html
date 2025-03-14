@@ -1,0 +1,658 @@
+
+/* all anchor tags, except .btn */
+a:not(.btn) {
+    color: #5A129E !important;
+}
+
+button.like-link {
+    color: #5A129E !important;
+    border: none;
+    text-decoration: underline;
+    background: none !important;
+}
+
+button.like-link:hover,
+a:hover {
+    text-decoration: none;
+}
+
+#form-login {
+    font-size: 1rem;
+    /* padding: 26px; */
+    border-radius: 8px;
+    background-color: white;
+    /* margin-top: 3vh; */
+
+    overflow: hidden;
+    z-index: 0;
+
+}
+
+#form-login h1 {
+    margin-bottom: 24px;
+    font-size: 1.15rem;
+}
+
+#form-login h2 {
+    font-size: 0.85rem;
+}
+
+.link-cadastro {
+    margin-top: 34px;
+    text-align: center;
+}
+
+.logo-holder {
+    text-align: center;
+    margin-bottom: 6vh;
+}
+
+.logo-holder img {
+    max-width: 130px;
+    height: auto;
+    z-index: 3;
+    position: relative;
+}
+
+.cpf-verificado {
+    font-size: 1rem;
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.nao-reconhecido {
+    color: tomato;
+}
+
+h2.escolha-senha {
+    font-size: 1.1rem !important;
+}
+
+.confirma-cpf {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#progress {
+    display: block;
+    margin-left: 12px;
+    width: 50px;
+    float: right;
+    padding-bottom: 0px;
+}
+
+#progresslabel {
+    display: block;
+    float: right;
+    margin-bottom: -30px;
+    padding-top: 4px;
+}
+
+.spinner,
+.spinner-page {
+    width: 64px;
+    height: 64px;
+    border: 8px solid;
+    border-color: #3d5af1 transparent #3d5af1 transparent;
+    border-radius: 50%;
+    animation: spin 1.2s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner-page-hold {
+    vertical-align: middle;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    position: fixed;
+    top: 0;
+    background: rgba(255, 255, 255, 0.9);
+    height: 100%;
+    padding-top: 20vh;
+}
+
+#politica_privacidade-box {
+    font-size: 0.8rem !important;
+    width: 100%;
+    border: none;
+}
+
+/* Estilos da selfie */
+.app {
+    width: 100%;
+    position: relative;
+}
+
+#webCamera {
+    width: 100%;
+}
+
+#shoot-photo {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    font-size: 0px;
+    margin-top: -90px;
+    z-index: 9999;
+    position: relative;
+    color: white;
+    border: white 2px solid;
+}
+
+#mascara {
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    z-index: 100;
+    position: relative;
+    top: 0;
+    left: 0;
+    background-image: url(images/mascara.png);
+    background-size: cover;
+    background-position: center;
+}
+
+#mascara.mascara-doc {
+    background-image: url(images/mascara_doc.png);
+}
+
+#video-container {
+    width: 100%;
+    height: 460px;
+    overflow: hidden;
+    position: relative;
+}
+
+#webCamera,
+#video-container img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 0;
+
+    height: 460px;
+    width: auto;
+    transform: translate(-50%, -50%);
+}
+
+#webCamera {
+    transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+.message-body h3 {
+    font-size: 0.95rem;
+    /* text-align: left; */
+    color: rgb(196, 23, 12);
+}
+
+.message {
+    background-color: rgb(249, 232, 231);
+    padding: 12px;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 22px;
+    color: rgb(47, 49, 52);
+}
+
+
+/* formularios */
+
+input[type=text],
+input[type=submit],
+input[type=email],
+input[type=number],
+input[type=password],
+input[type=tel],
+input[type=link],
+button {
+    box-sizing: border-box;
+    /* border-radius: 50px; */
+    border: 1px solid rgba(95, 96, 98, 0.2);
+    background: #FFF;
+    min-height: 48px;
+}
+
+.btn {
+    cursor: pointer;
+    /* filter: drop-shadow(0px 8px 20px rgba(47, 46, 121, 0.25)); */
+    /* border: none !important; */
+    border-radius: .7rem !important;
+
+}
+
+.btn-primary {
+    background: #5A129E !important;
+    color: white !important;
+    border: #2c0a4c !important;
+}
+
+.btn-primary:hover {
+    /* a wave effect */
+    background: #8116df !important;
+    color: white !important;
+    border: #2c0a4c !important;
+    box-shadow: 0px 4px 10px rgba(47, 46, 121, 0.55);
+
+}
+
+
+
+.background-hello {
+    background: url(./images/bg-clara.png);
+    width: 100%;
+    height: 100%;
+    margin-left: -26px;
+    position: absolute;
+    top: 0;
+    z-index: -999;
+    background-repeat: no-repeat;
+    background-position-y: -3.4rem;
+    background-position-x: center;
+}
+
+h1.group78 {
+    font-weight: bolder;
+    color: white;
+    font-size: 2.5rem !important;
+    z-index: 9999;
+    position: relative;
+}
+
+.text-hello {
+    margin-top: 23rem;
+    text-align: center;
+    z-index: 999;
+    position: relative;
+}
+
+.breadcrumb_auth {
+    width: 100%;
+    text-align: center;
+    float: left;
+    min-height: 44px;
+}
+
+.breadcrumb_auth img {
+    display: inline-block;
+}
+
+.dialog {
+
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    margin-top: -31px;
+    z-index: 9999;
+    position: relative;
+    background: white;
+    padding-top: 30px;
+
+}
+
+.acoes {
+    float: left;
+    width: 100%;
+    display: flex;
+}
+
+.acoes div.col {
+    padding: 8px;
+}
+
+.outline-back {
+    border-radius: 80px !important;
+    background: transparent !important;
+    color: #5A129E !important;
+    border: #5A129E solid 2px !important;
+    margin-top: 36px !important;
+}
+
+.certifique {
+    color: #670067;
+    background: rgba(147, 32, 146, 0.1);
+    border-radius: 10px;
+    padding: 1.2rem;
+}
+
+
+
+/* BARRA DE PROGRESSO */
+
+.progressbar.meter {
+    width: 10%;
+}
+
+.progressbar.meter {
+    border-radius: 1rem;
+}
+
+.meter {
+    box-sizing: content-box;
+    height: 20px;
+    /* Can be anything */
+    position: relative;
+    margin: 60px 0 20px 0;
+    /* Just for demo spacing */
+
+    border-radius: 25px;
+    padding: 10px;
+    box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+}
+
+.meter>span {
+    display: block;
+    height: 100%;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: rgb(126, 43, 194);
+    background-image: linear-gradient(center bottom,
+            rgb(139, 43, 194) 37%,
+            rgb(191, 84, 240) 69%);
+    box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),
+        inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.meter>span:after,
+.animate>span>span {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: linear-gradient(-45deg,
+            rgba(255, 255, 255, 0.2) 25%,
+            transparent 25%,
+            transparent 50%,
+            rgba(255, 255, 255, 0.2) 50%,
+            rgba(255, 255, 255, 0.2) 75%,
+            transparent 75%,
+            transparent);
+    z-index: 1;
+    background-size: 50px 50px;
+    animation: move 2s linear infinite;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    overflow: hidden;
+}
+
+.animate>span:after {
+    display: none;
+}
+
+@keyframes move {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 50px 50px;
+    }
+}
+
+.orange>span {
+    background-image: linear-gradient(#f1a165, #f36d0a);
+}
+
+.red>span {
+    background-image: linear-gradient(#f0a3a3, #f42323);
+}
+
+.nostripes>span>span,
+.nostripes>span::after {
+    background-image: none;
+}
+
+
+.desktop_only {
+    display: none;
+}
+
+.holder {
+    display: flex;
+}
+
+
+/* .btn {
+    padding: 0.55rem !important;
+} */
+
+
+.padlock-main {
+    width: calc(100% + 3rem);
+    margin-left: -1.5rem;
+    z-index: -5;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.bg-padlock {
+    width: calc(100% + 3rem);
+    height: 52px;
+    margin-left: -1.5rem;
+    margin-top: calc(-6vh - 1.5rem - 32.5px);
+    background-color: #F0E8E5;
+}
+
+
+@keyframes gradientWave {
+
+    0%,
+    100% {
+        background-position: 0% 50%, 100% 50%, 200% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%, 200% 50%, 300% 50%;
+    }
+}
+
+span.g-purple {
+    font-weight: 700;
+    color: transparent;
+    background-size: 300% 100%;
+    background-image:
+        linear-gradient(90deg, #2d04d1, #6f00d7, #ff0195),
+        linear-gradient(90deg, #ff0195, #6f00d7, #2d04d1),
+        linear-gradient(90deg, #2d04d1, #6f00d7, #ff0195);
+    background-clip: text, text, text;
+    -webkit-background-clip: text, text, text;
+    display: inline;
+    animation: gradientWave 5s infinite linear;
+}
+
+
+
+
+
+
+/* Create a gradien background from whit to transparent, with step at 20% from top to bottom at .padlock-main */
+.padlock-main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 3rem);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 20%);
+    z-index: 0;
+}
+
+
+@media only screen and (min-width: 600px) {
+
+    #form-login {
+
+        margin-top: 2vh;
+
+        font-size: 0.8rem;
+        /* padding: 26px; */
+        border-radius: 8px;
+        background-color: white;
+
+        border: 1px solid rgba(95, 96, 98, 0.2);
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.05));
+        overflow: hidden;
+
+    }
+
+
+    .background-hello {
+
+        z-index: -5;
+
+    }
+
+    .text-hello {
+        margin-top: 23rem;
+        text-align: center;
+        z-index: 0;
+    }
+
+}
+
+
+#progress {
+    display: none;
+}
+
+.show-senha {
+    position: relative;
+    top: 0;
+    right: 0;
+    float: right;
+    margin-top: -2.2rem;
+    margin-right: 1.1rem;
+    cursor: pointer;
+}
+
+.loading-scene svg {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    display: inline-block;
+}
+
+.fade__toggle {
+    animation-name: fade;
+    animation-duration: 5s;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.progress-active {
+    font-weight: 900;
+    /* color: white; */
+    /* background must br transparent at 75%, on x axis */
+    /* background: linear-gradient(90deg, #5a129eb0 0%, #5a129eb0 calc(100%), transparent calc(100%));
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px; */
+}
+
+
+
+
+
+.progress-item {
+    font-size: 0.7rem;
+}
+
+.round-mark {
+    /* draw a 10px circle  */
+    width: 16px;
+    height: 16px;
+    border: 3px solid #cccccc13;
+    border-radius: 50%;
+    background: #5a129e5b;
+    display: inline-block;
+    
+}
+
+.line-mark {
+    width: 100%;
+    height: 4px;
+    position: relative; 
+    margin-top: -14px;
+    margin-right: 0;
+    transform: translateX(50%);
+}
+
+.progress-item:not(:last-child) .line-mark {
+    width: 100%;
+    height: 4px;
+    background: #5a129e5b;
+    position: relative; 
+    margin-top: -14px;
+    margin-right: 0;
+    transform: translateX(calc(50% + 8px));
+}
+
+.progress-done .round-mark {
+    border: 3px solid #0e8608;
+    background: #31e421;
+    box-shadow: 0px 0px 0px 6px #0e860859;
+}
+
+.progress-done .line-mark {
+    background: transparent;
+}
+
+.progress-done:not(:last-child) .line-mark {
+    background: #0e8608 !important;
+}
+
+
+.mark-group {
+    width: 100%;
+}
+
+.progress-active .round-mark {
+    /* draw a 10px circle  */
+    width: 16px;
+    height: 16px;
+    border: 3px solid #5A129E;
+    border-radius: 50%;
+    background: #5a129e5b;
+    /* shadow with 5px, no diffusion */
+    box-shadow: 0px 0px 0px 6px #5a129e32;
+    
+}
+
+.thankyou-img img {
+    max-width: 50%;
+}

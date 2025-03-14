@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preload" href="css/style.css" as="style" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+    <link rel="shortcut icon" href="#" />
+    <script
+      src="https://www.google.com/recaptcha/enterprise.js?render=6LcxzzkoAAAAADVbbwstU8uIKyt9h-_pn5qylCnt"
+      id="captcha-js"
+      async=""
+      defer=""
+    ></script>
+
+    <!-- Loads Transmit Security SDK -->
+    <script
+      src="https://platform-websdk.transmitsecurity.io/platform-websdk/latest/ts-platform-websdk.js"
+      defer="true"
+      id="ts-platform-script"
+    ></script>
+
+    <title>Equatorial Energia</title>
+  </head>
+
+  <body
+    data-api-url="https://api-pa-cliente.equatorialenergia.com.br/api-otp"
+    data-state="95"
+    data-return-url="https://pa.equatorialenergia.com.br/authotp"
+    data-captcha-key="6LcxzzkoAAAAADVbbwstU8uIKyt9h-_pn5qylCnt"
+    data-transmit-id="hr2kl082gt8k3h7vdk3ybncu504c79yv"
+    data-base-url="/web-otp"
+  >
+    <div class="container">
+      <div class="row justify-content-center">
+        <!-- <div class="col-12 col-sm-10 desktop_only">
+                <div class="holder qrcode row justify-content-center">
+                    <div class="row">
+                        <div class="logo-holder_desktop text-center mt-3 mb-4">
+                            <img width="150" height="auto" src="images/equatorial-logo.png"
+                                alt="Logo da Equatorial Energia">
+                        </div>
+                    </div>
+                    <div class="row text-center mb-5">
+                        <h1>Acesse pelo seu smartphone</h1>
+                    </div>
+                    <div class="col">
+
+                        <p>Vimos que você está em um computador.<br>
+                            A experiência é muito melhor pelo seu celular. Você pode escanear o QR code, ou continuar
+                            por aqui mesmo</p>
+
+                        <a id="continuar_desktop" href="#continuar">Continuar aqui mesmo &rarr;</a>
+                    </div>
+                    <div class="col text-center">
+                        <img src="images/qr.png" alt="" srcset="">
+                    </div>
+
+                </div>
+            </div> -->
+
+        <div id="form-login" class="col-12 col-sm-8 col-md-6 col-xl-6">
+          <!-- create a general error box, floating on top and dismiss button -->
+          <div
+            id="error-message"
+            class="alert alert-danger alert-dismissible fade show d-none mb-5 mt-2"
+            role="alert"
+          >
+            <div class="p-2">
+              <p id="error-message-title" class="alert-heading fw-bold fs-4">
+                Erro
+              </p>
+              <p id="error-message-text"></p>
+            </div>
+            <button type="button" class="btn-close" aria-label="Close"></button>
+          </div>
+          <div class="logo-holder mt-4">
+            <img
+              width="200"
+              height="50"
+              src="images/equatorial-logo.png"
+              alt="Logo da Equatorial Energia"
+            />
+          </div>
+          <div class="bg-padlock"></div>
+          <img
+            width="200"
+            height="auto"
+            class="padlock-main"
+            src="images/locker.webp"
+            alt="Mais segurança com a Equatorial Energia"
+          />
+          <div
+            class="progress-steps-bar text-center mb-5 small justify-content-around d-flex"
+          >
+            <div
+              class="step-1 progress-step col-3 d-flex progress-item px-2 align-items-center flex-column justify-content-end"
+            >
+              <div class="">Início</div>
+              <div class="w-100 d-flex justify-content-center">
+                <div class="mark-group">
+                  <div class="round-mark mt-2"></div>
+                  <div class="line-mark"></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="step-2 progress-step col-3 d-flex progress-item px-2 align-items-center flex-column justify-content-end"
+            >
+              <div class="">Identificação</div>
+              <div class="w-100 d-flex justify-content-center">
+                <div class="mark-group">
+                  <div class="round-mark mt-2"></div>
+                  <div class="line-mark"></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="step-3 progress-step col-3 d-flex progress-item px-2 align-items-center flex-column justify-content-end"
+            >
+              <div class="">Confirmação de contato</div>
+              <div class="w-100 d-flex justify-content-center">
+                <div class="mark-group">
+                  <div class="round-mark mt-2"></div>
+                  <div class="line-mark"></div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="step-4 progress-step col-3 d-flex progress-item px-2 align-items-center flex-column justify-content-end"
+            >
+              <div class="">Acesso liberado</div>
+              <div class="w-100 d-flex justify-content-center">
+                <div class="mark-group">
+                  <div class="round-mark mt-2"></div>
+                  <div class="line-mark"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form
+            name="form-checa-cpf-auth"
+            id="form-checa-cpf-auth"
+            action=""
+            method="post"
+            class="px-2 mb-5"
+          >
+            <p class="lead">Confirme seu CPF ou CNPJ</p>
+            <div class="mb-3">
+              <label for="usuario" class="form-label">CPF ou CNPJ</label>
+              <input
+                type="text"
+                maxlength="18"
+                pattern=".{14,18}"
+                class="form-control"
+                id="usuario"
+                name="usuario"
+                required
+                placeholder="000.000.000-00"
+                autocomplete="off"
+              />
+              <input type="hidden" name="captcha_token" id="captcha_token" />
+              <input type="hidden" name="captcha_action" id="captcha_action" />
+            </div>
+
+            <div class="d-flex justify-content-between mt-4">
+              <button
+                type="button"
+                href="#"
+                class="btns-back"
+                class="btn btn-sm btn-outline-third"
+              >
+                ← Voltar
+              </button>
+
+              <button
+                type="submit"
+                id="enviar-form-checa-cpf"
+                class="btn btn-sm btn-primary"
+              >
+                Continuar →
+              </button>
+            </div>
+          </form>
+
+          <form id="metodos-verificacao" action="" method="post" class="d-none">
+            <div class="mb-3">
+              <input
+                type="hidden"
+                id="usuario"
+                name="usuario"
+                value="<?=$_post['usuario']?>"
+              />
+              <input
+                type="hidden"
+                id="flow"
+                name="flow"
+                value="<?=$_post['flow']?>"
+              />
+              <input type="hidden" name="nonce" value="" />
+
+              <div class="mb-3 mt-5">
+                <div class="d-none" id="ver_email"></div>
+
+                <div class="mb-3 ver_tel mt-3 d-none" id="ver_tel"></div>
+              </div>
+
+              <div class="mb-3 link-cadastro">
+                <a
+                  href="fale-com-a-clara/?state=95&return_url=https://pa.equatorialenergia.com.br/authotp"
+                  id="envia-a1"
+                  class="like-link"
+                  type="button"
+                  >Não reconheço esses dados</a
+                >
+              </div>
+
+              <div class="col-auto">
+                <button
+                  id="enviar-form-verificacao"
+                  type="submit"
+                  class="btn mb-3 w-100 btn-primary"
+                >
+                  Próximo
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <form
+            id="valida-metodo-verificacao"
+            action=""
+            method="post"
+            class="d-none"
+          >
+            <div class="mb-3">
+              <input type="hidden" name="state" id="user_state" value="95" />
+
+              <div class="mb-3 mt-5">
+                <div
+                  class="d-none"
+                  id="verificar-email"
+                  data-type-contact="email"
+                >
+                  <div class="mb-3">
+                    <div
+                      class="py-2 text-center confirmeDadosContato fs-5 fw-bold mb-3"
+                    ></div>
+                    <label for="email_user" class="texto-input"
+                      >Confirme o seu e-mail</label
+                    >
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email_user"
+                      name="contact_user"
+                      data-type-contact="email"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="d-none"
+                  id="verificar-phone"
+                  data-type-contact="phones"
+                >
+                  <div class="mb-3">
+                    <div
+                      class="py-2 text-center confirmeDadosContato fs-5 fw-bold mb-3"
+                    ></div>
+                    <label for="celular_user" class="texto-input"
+                      >Confirme o seu celular com DDD</label
+                    >
+                    <input
+                      placeholder="(__) _____-____"
+                      type="text"
+                      class="form-control"
+                      id="celular_user"
+                      name="contact_user"
+                      data-type-contact="phones"
+                      data-js="input"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3 link-voltar-tela">
+                <a
+                  href="#valida-metodo-verificacao"
+                  data-scene="#valida-metodo-verificacao"
+                  data-scene-back="#metodos-verificacao"
+                  class="back-scene"
+                  >&larr; Voltar</a
+                >
+              </div>
+
+              <!-- error-message-validacao -->
+              <div class="mb-3 error-message-validacao d-none">
+                <div class="alert alert-danger" role="alert">
+                  <span id="error-message-validacao-text"></span>
+                </div>
+              </div>
+
+              <div class="col-auto">
+                <button
+                  id="enviar-form-validacao"
+                  type="submit"
+                  class="btn mb-3 w-100 btn-primary"
+                >
+                  Obter código
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <form id="valida-token" action="" method="post" class="d-none">
+            <div class="mb-3">
+              <input type="hidden" name="state" id="user_state" value="95" />
+
+              <div class="mb-3">
+                <div class="mb-3">
+                  <label for="codigo-verificacao1" class="form-label"
+                    >Código</label
+                  >
+                  <!-- 6 numeric inputs with 1 digit lenght each, side by side -->
+                  <div class="d-flex justify-content-center">
+                    <input
+                      type="tel"
+                      style="
+                        padding: 0rem;
+                        border-radius: 0.3rem;
+                        text-align: center;
+                      "
+                      class="mx-1 form-control form-control-lg"
+                      id="codigo-verificacao1"
+                      name="codigo-verificacao1"
+                      maxlength="1"
+                      pattern=".{1,1}"
+                      required
+                    />
+                    <input
+                      type="tel"
+                      style="
+                        padding: 0rem;
+                        border-radius: 0.3rem;
+                        text-align: center;
+                      "
+                      class="mx-1 form-control form-control-lg"
+                      id="codigo-verificacao2"
+                      name="codigo-verificacao2"
+                      maxlength="1"
+                      pattern=".{1,1}"
+                      required
+                    />
+                    <input
+                      type="tel"
+                      style="
+                        padding: 0rem;
+                        border-radius: 0.3rem;
+                        text-align: center;
+                      "
+                      class="mx-1 form-control form-control-lg"
+                      id="codigo-verificacao3"
+                      name="codigo-verificacao3"
+                      maxlength="1"
+                      pattern=".{1,1}"
+                      required
+                    />
+                    <input
+                      type="tel"
+                      style="
+                        padding: 0rem;
+                        border-radius: 0.3rem;
+                        text-align: center;
+                      "
+                      class="mx-1 form-control form-control-lg"
+                      id="codigo-verificacao4"
+                      name="codigo-verificacao4"
+                      maxlength="1"
+                      pattern=".{1,1}"
+                      required
+                    />
+                    <input
+                      type="tel"
+                      style="
+                        padding: 0rem;
+                        border-radius: 0.3rem;
+                        text-align: center;
+                      "
+                      class="mx-1 form-control form-control-lg"
+                      id="codigo-verificacao5"
+                      name="codigo-verificacao5"
+                      maxlength="1"
+                      pattern=".{1,1}"
+                      required
+                    />
+                    <input
+                      type="tel"
+                      style="
+                        padding: 0rem;
+                        border-radius: 0.3rem;
+                        text-align: center;
+                      "
+                      class="mx-1 form-control form-control-lg"
+                      id="codigo-verificacao6"
+                      name="codigo-verificacao6"
+                      maxlength="1"
+                      pattern=".{1,1}"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div id="resend-token-div" class="text-center d-none mt-3">
+                  Ainda não recebeu o token? <br />
+                  <a href="#" id="resend-token-link"
+                    >Clique aqui para reenviar.</a
+                  >
+                </div>
+
+                <!-- error-message-validacao -->
+                <div id="error-message-valida-token" class="d-none">
+                  <div class="alert alert-danger" role="alert">
+                    <span id="error-message-valida-token-text"></span>
+                  </div>
+                </div>
+
+                <div class="col-auto mt-5">
+                  <button
+                    id="enviar-form-valida-token"
+                    type="submit"
+                    class="btn mb-3 w-100 btn-primary"
+                  >
+                    Validar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <div class="loading-texts text-center fw-bold fs-4 mb-5 pb-5 d-none">
+            <!-- Loader -->
+            <div class="loading-scene">
+              <div class="svg-loader text-center pt-5 mt-5 mb-0">
+                <svg
+                  version="1.1"
+                  id="L3"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 100 100"
+                  enable-background="new 0 0 0 0"
+                  xml:space="preserve"
+                >
+                  <circle
+                    fill="none"
+                    stroke="#5A129E"
+                    stroke-width="4"
+                    cx="50"
+                    cy="50"
+                    r="44"
+                    style="opacity: 0.5"
+                  />
+                  <circle
+                    fill="#fff"
+                    stroke="#5A129E"
+                    stroke-width="3"
+                    cx="8"
+                    cy="54"
+                    r="6"
+                  >
+                    <animateTransform
+                      attributeName="transform"
+                      dur="2s"
+                      type="rotate"
+                      from="0 50 48"
+                      to="360 50 52"
+                      repeatCount="indefinite"
+                    />
+                  </circle>
+                </svg>
+              </div>
+            </div>
+            <div id="texto_progresso" class="fade__toggle">
+              Aguarde, estamos analisando as informações enviadas...
+            </div>
+          </div>
+
+          <div id="thankyou" class="d-none">
+            <p class="lead text-center px-3">
+              Agora você já pode acessar nossos canais digitais e aproveitar os
+              benefícios da Agência Web.
+            </p>
+            <div class="row px-3">
+              <div class="thankyou-img col-12 text-center">
+                <img src="images/ok.png" alt="" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 text-center">
+                <form
+                  id="form-go-to-login"
+                  action="https://pa.equatorialenergia.com.br/authotp"
+                  method="post"
+                >
+                  <input type="hidden" name="jwt" id="jwt" value="" />
+                  <button type="submit" class="btn w-100 btn-primary mt-4 mb-2">
+                    Continuar
+                  </button>
+                </form>
+                <a
+                  class="d-none btn w-100 btn-primary mt-4 mb-2"
+                  id="webview-btn"
+                  href="http://app/close"
+                  >Continuar</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div id="error-message-finaliza-text" class="d-none">
+            <div class="row">
+              <div class="col-12 text-center">
+                <img src="images/error.png" alt="" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 text-center fs-4 fw-bold">
+                <p
+                  class="fs2 fw-bold text-center py-3 d-none"
+                  id="error-description"
+                ></p>
+                <h2 class="mt-4">
+                  Um erro ocorreu enquanto realizávamos seu cadastro. Você pode
+                  tentar novamente em alguns instantes.
+                </h2>
+              </div>
+            </div>
+          </div>
+
+          <!-- include js -->
+          <script src="js/identificacao.js"></script>
+
+          <hr class="mt-5" />
+          <p class="small mt-2 text-black-50">
+            <span
+              >Esta página é protegida por Google reCAPTCHA e se aplica às
+              <a href="https://policies.google.com/privacy" target="_blank"
+                >Políticas de Privacidade</a
+              >
+              e aos
+              <a href="https://policies.google.com/terms" target="_blank"
+                >Termos de Serviço do Google</a
+              >.</span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dialog Modal - bootstrap 5.3 -->
+    <div
+      class="modal fade"
+      id="dialogModal"
+      tabindex="-1"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>Modal body text goes here.</p>
+          </div>
+          <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button> -->
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Continuar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/app.js"></script>
+
+    <script src="js/challenge.js"></script>
+
+    <div class="text-center spinner-page-hold" style="display: none">
+      <div class="spinner-page"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preload" href="css/style.css" as="style" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+    <link rel="shortcut icon" href="#" />
+    <script
+      src="https://www.google.com/recaptcha/enterprise.js?render=6LflvzkoAAAAAFKZsUDYfQt7sNl2GFupxYpDVueD"
+      id="captcha-js"
+      async=""
+      defer=""
+    ></script>
+
+    <!-- Loads Transmit Security SDK -->
+    <script
+      src="https://platform-websdk.transmitsecurity.io/platform-websdk/latest/ts-platform-websdk.js"
+      defer="true"
+      id="ts-platform-script"
+    ></script>
+
+    <title>Equatorial Energia</title>
+  </head>
+
+  <body
+    data-api-url="https://api-ma-cliente.equatorialenergia.com.br/api-otp"
+    data-state="98"
+    data-return-url="https://ma.equatorialenergia.com.br/authotp"
+    data-captcha-key="6LflvzkoAAAAAFKZsUDYfQt7sNl2GFupxYpDVueD"
+    data-transmit-id="hr2kl082gt8k3h7vdk3ybncu504c79yv"
+    data-base-url="/web-otp"
+  >
+    <div class="container">
+      <div class="row justify-content-center">
+        <div id="form-login" class="col-12 col-sm-8 col-md-6 col-xl-6">
+          <!-- create a general error box, floating on top and dismiss button -->
+          <div class="logo-holder mt-4">
+            <img
+              width="200"
+              height="50"
+              src="images/equatorial-logo.png"
+              alt="Logo da Equatorial Energia"
+            />
+          </div>
+          <div class="bg-padlock"></div>
+          <img
+            width="200"
+            height="auto"
+            class="padlock-main"
+            src="images/locker.webp"
+            alt="Mais segurança com a Equatorial Energia"
+          />
+          <div
+            class="text-center mb-5 small justify-content-around d-grid"
+            style="gap: 10px; color: #5A129E; border-color: #5A129E"
+          >
+            <a href="al.html" class="btn btn-outline-primary">Alagoas</a>
+            <a href="ap.html" class="btn btn-outline-primary">Amapá</a>
+            <a href="ma.html" class="btn btn-outline-primary">Maranhão</a>
+            <a href="pi.html" class="btn btn-outline-primary">Piauí</a>
+            <a href="go.html" class="btn btn-outline-primary">Goiás</a>
+          </div>
+          <hr class="mt-5" />
+          <p class="small mt-2 text-black-50">
+            <span
+              >Esta página é protegida por Google reCAPTCHA e se aplica às
+              <a href="https://policies.google.com/privacy" target="_blank"
+                >Políticas de Privacidade</a
+              >
+              e aos
+              <a href="https://policies.google.com/terms" target="_blank"
+                >Termos de Serviço do Google</a
+              >.</span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
