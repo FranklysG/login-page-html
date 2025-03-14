@@ -33,6 +33,7 @@
 
   <body
     data-api-url="https://api-ma-cliente.equatorialenergia.com.br/api-otp"
+    data-base-url="https://api-ma-cliente.equatorialenergia.com.br/"
     data-state="98"
     data-return-url="https://ma.equatorialenergia.com.br/authotp"
     data-captcha-key="6LflvzkoAAAAAFKZsUDYfQt7sNl2GFupxYpDVueD"
@@ -501,8 +502,8 @@
 
           <div id="thankyou" class="d-none">
             <p class="lead text-center px-3">
-              Agora você já pode acessar nossos canais digitais e aproveitar os
-              benefícios da Agência Web.
+              Aguarde, você sera redirecionado para nosso app em alguns
+              instantes
             </p>
             <div class="row px-3">
               <div class="thankyou-img col-12 text-center">
@@ -517,16 +518,7 @@
                   method="post"
                 >
                   <input type="hidden" name="jwt" id="jwt" value="" />
-                  <button type="submit" class="btn w-100 btn-primary mt-4 mb-2">
-                    Continuar
-                  </button>
                 </form>
-                <a
-                  class="d-none btn w-100 btn-primary mt-4 mb-2"
-                  id="webview-btn"
-                  href="http://app/close"
-                  >Continuar</a
-                >
               </div>
             </div>
           </div>
@@ -616,6 +608,7 @@
     <script src="js/app.js"></script>
 
     <script src="js/challenge.js"></script>
+    <script src="js/check.js"></script>
 
     <div class="text-center spinner-page-hold" style="display: none">
       <div class="spinner-page"></div>
